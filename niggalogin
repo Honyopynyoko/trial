@@ -1,0 +1,67 @@
+using System;
+
+namespace CSharp
+{
+    class Program
+    {
+        private string username;
+        public string Username{
+            get {return username;}
+            set {username = value;}
+        }
+        private string passwd;
+        public string Passwd{
+            get {return passwd;}
+            set {passwd = value;}
+        }
+
+        static void Main(string[] args)
+        {
+            while(true){
+            Console.WriteLine("Welcome user!\nPlease choose from the menu:\n1.Register\n2.Login");
+            string choise = Console.ReadLine();
+
+            if(choise == "1")
+            {
+                Register();
+            }
+            else if (choise == "2")
+            {
+                Login();
+            }
+            else
+            {
+                Console.WriteLine("Wrong input");
+            }
+            }
+        }
+        static void Register()
+        {
+            Program test = new Program();
+            Console.WriteLine("Enter user name:");
+            test.Username = Console.ReadLine();
+            Console.WriteLine("Enter passwd:");
+            test.Passwd = Console.ReadLine();
+            Console.WriteLine("Registration complete.\nPress any to continue...");
+            Console.WriteLine($"username: {test.Username} ;;; passwd: {test.Passwd}");
+            Console.ReadKey();
+        }
+        static void Login(){
+            Program test = new Program();
+            Console.WriteLine("Enter user name:");
+            string atUsr = Console.ReadLine();
+            Console.WriteLine("Enter passwd:");
+            string atPsd = Console.ReadLine();
+
+            if (atUsr == test.Username&&atPsd==test.Passwd)
+            {
+                Console.WriteLine("Your login was succesful");
+                Console.ReadKey();
+            }
+            else{
+                Console.WriteLine("Your login was unsuccessful");
+                Console.ReadKey();
+            }
+        }
+    }
+}
